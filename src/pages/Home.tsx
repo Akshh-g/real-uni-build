@@ -2,8 +2,15 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { GraduationCap, Users, BookOpen, Award, Calendar, ArrowRight, Star, Quote } from "lucide-react";
+import { GraduationCap, Users, BookOpen, Award, Calendar, ArrowRight, Star, Quote, MapPin, Phone, Mail, Globe } from "lucide-react";
 import campusHero from "@/assets/campus-hero.jpg";
+import studentsLibrary from "@/assets/students-library.jpg";
+import labResearch from "@/assets/lab-research.jpg";
+import graduation from "@/assets/graduation.jpg";
+import sportsComplex from "@/assets/sports-complex.jpg";
+import engineeringLab from "@/assets/engineering-lab.jpg";
+import campusAerial from "@/assets/campus-aerial.jpg";
+import hostel from "@/assets/hostel.jpg";
 
 const Home = () => {
   const stats = [
@@ -170,6 +177,100 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Campus Life Section */}
+      <section className="py-16 bg-university-sky/10">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+              Campus Life at MATS
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Experience a vibrant campus community with world-class facilities and endless opportunities
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md overflow-hidden">
+              <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url(${studentsLibrary})` }}>
+                <div className="h-full bg-primary/20 group-hover:bg-primary/30 transition-colors"></div>
+              </div>
+              <CardContent className="p-6">
+                <h3 className="font-bold text-lg mb-2">Modern Library</h3>
+                <p className="text-sm text-muted-foreground">24/7 access to over 100,000 books and digital resources</p>
+              </CardContent>
+            </Card>
+
+            <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md overflow-hidden">
+              <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url(${labResearch})` }}>
+                <div className="h-full bg-primary/20 group-hover:bg-primary/30 transition-colors"></div>
+              </div>
+              <CardContent className="p-6">
+                <h3 className="font-bold text-lg mb-2">Research Labs</h3>
+                <p className="text-sm text-muted-foreground">State-of-the-art laboratories for hands-on learning</p>
+              </CardContent>
+            </Card>
+
+            <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md overflow-hidden">
+              <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url(${sportsComplex})` }}>
+                <div className="h-full bg-primary/20 group-hover:bg-primary/30 transition-colors"></div>
+              </div>
+              <CardContent className="p-6">
+                <h3 className="font-bold text-lg mb-2">Sports Complex</h3>
+                <p className="text-sm text-muted-foreground">Olympic-size pool, gym, and multi-sport facilities</p>
+              </CardContent>
+            </Card>
+
+            <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md overflow-hidden">
+              <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url(${hostel})` }}>
+                <div className="h-full bg-primary/20 group-hover:bg-primary/30 transition-colors"></div>
+              </div>
+              <CardContent className="p-6">
+                <h3 className="font-bold text-lg mb-2">Campus Housing</h3>
+                <p className="text-sm text-muted-foreground">Safe, comfortable accommodation for 5,000+ students</p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Campus Map Section */}
+          <div className="bg-white rounded-lg shadow-lg p-8">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-2xl font-bold text-primary mb-4">Explore Our Campus</h3>
+                <p className="text-muted-foreground mb-6">
+                  Spread across 200+ acres in the heart of Raipur, our campus combines modern architecture 
+                  with green spaces, creating an ideal environment for learning and growth.
+                </p>
+                <div className="space-y-3">
+                  <div className="flex items-center">
+                    <MapPin className="h-5 w-5 text-primary mr-3" />
+                    <span>MATS University, Gullu, Arang Road, Raipur - 492001</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Phone className="h-5 w-5 text-primary mr-3" />
+                    <span>+91-771-4073000</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Mail className="h-5 w-5 text-primary mr-3" />
+                    <span>info@matsuniversity.ac.in</span>
+                  </div>
+                </div>
+                <Button className="mt-6" asChild>
+                  <Link to="/contact">Visit Campus</Link>
+                </Button>
+              </div>
+              <div className="h-80 rounded-lg overflow-hidden">
+                <div 
+                  className="h-full bg-cover bg-center" 
+                  style={{ backgroundImage: `url(${campusAerial})` }}
+                >
+                  <div className="h-full bg-primary/10"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* News & Events */}
       <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
@@ -207,6 +308,52 @@ const Home = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Academic Excellence Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+                Academic Excellence & Innovation
+              </h2>
+              <p className="text-lg text-muted-foreground mb-6">
+                At MATS University, we foster a culture of innovation and academic excellence. 
+                Our students and faculty are engaged in cutting-edge research that shapes the future.
+              </p>
+              <div className="grid grid-cols-2 gap-6 mb-8">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary">98%</div>
+                  <div className="text-sm text-muted-foreground">Placement Rate</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary">₹12L</div>
+                  <div className="text-sm text-muted-foreground">Avg. Package</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary">150+</div>
+                  <div className="text-sm text-muted-foreground">Research Papers</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary">50+</div>
+                  <div className="text-sm text-muted-foreground">Industry Partners</div>
+                </div>
+              </div>
+              <Button asChild>
+                <Link to="/research">Explore Research</Link>
+              </Button>
+            </div>
+            <div className="h-96 rounded-lg overflow-hidden shadow-lg">
+              <div 
+                className="h-full bg-cover bg-center" 
+                style={{ backgroundImage: `url(${engineeringLab})` }}
+              >
+                <div className="h-full bg-primary/10"></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

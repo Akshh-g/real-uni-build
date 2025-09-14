@@ -1,6 +1,9 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Users, Target, Award, Globe } from "lucide-react";
+import chancellor from "@/assets/chancellor.jpg";
+import campusAerial from "@/assets/campus-aerial.jpg";
+import graduation from "@/assets/graduation.jpg";
 
 const About = () => {
   const leadership = [
@@ -177,8 +180,18 @@ const About = () => {
             {leadership.map((leader, index) => (
               <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
                 <CardHeader className="text-center">
-                  <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Users className="h-12 w-12 text-primary" />
+                  <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden shadow-lg">
+                    {index === 0 ? (
+                      <img 
+                        src={chancellor} 
+                        alt={leader.name}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-primary/10 flex items-center justify-center">
+                        <Users className="h-12 w-12 text-primary" />
+                      </div>
+                    )}
                   </div>
                   <CardTitle className="text-xl">{leader.name}</CardTitle>
                   <Badge variant="secondary" className="mx-auto">{leader.position}</Badge>
@@ -189,6 +202,56 @@ const About = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </section>
+
+        {/* Campus Heritage Section */}
+        <section className="mb-16">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+                Our Campus Heritage
+              </h2>
+              <p className="text-lg text-muted-foreground mb-6">
+                Since our establishment in 2006, MATS University has grown into one of India's 
+                premier private universities, nurturing over 50,000 alumni who are making their 
+                mark across the globe.
+              </p>
+              <div className="grid grid-cols-2 gap-6">
+                <div>
+                  <div className="text-3xl font-bold text-primary">17+</div>
+                  <div className="text-sm text-muted-foreground">Years of Excellence</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-primary">50K+</div>
+                  <div className="text-sm text-muted-foreground">Alumni Network</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-primary">200+</div>
+                  <div className="text-sm text-muted-foreground">Acres Campus</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-primary">95%</div>
+                  <div className="text-sm text-muted-foreground">Student Satisfaction</div>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-6">
+              <div className="h-64 rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src={campusAerial} 
+                  alt="Campus aerial view"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="h-32 rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src={graduation} 
+                  alt="Graduation ceremony"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </section>
 

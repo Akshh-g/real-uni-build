@@ -3,6 +3,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Book, Users, Award, Clock, ArrowRight, GraduationCap } from "lucide-react";
+import engineeringLab from "@/assets/engineering-lab.jpg";
+import labResearch from "@/assets/lab-research.jpg";
+import studentsLibrary from "@/assets/students-library.jpg";
 
 const Academics = () => {
   const { department } = useParams();
@@ -250,11 +253,23 @@ const Academics = () => {
         {/* Faculties Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {faculties.map((faculty, index) => (
-            <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group">
-              <CardHeader>
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
-                  <Book className="h-8 w-8 text-primary group-hover:text-white" />
+            <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden">
+              <div className="h-48 bg-cover bg-center relative" 
+                   style={{ 
+                     backgroundImage: `url(${
+                       index === 0 ? engineeringLab : 
+                       index === 1 ? labResearch : 
+                       studentsLibrary
+                     })` 
+                   }}>
+                <div className="absolute inset-0 bg-primary/60 group-hover:bg-primary/40 transition-colors"></div>
+                <div className="absolute bottom-4 left-4">
+                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                    <Book className="h-6 w-6 text-white" />
+                  </div>
                 </div>
+              </div>
+              <CardHeader>
                 <CardTitle className="text-xl text-center">{faculty.name}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
